@@ -9,7 +9,7 @@ var Player = function(name, color, position, direction) {
 
     this.material = new THREE.MeshLambertMaterial({
         color: color,
-        });
+    });
 
     bumperMesh = new THREE.Mesh(new THREE.CylinderGeometry(0, 10, 10, 12, 12, false), this.materialBumper);
     bumperMesh.rotation.x = Math.PI / 2 ;
@@ -56,7 +56,7 @@ Player.prototype.displayInfo = function () {
 }
 
 Player.prototype.turnRight = function (angle) {
-    this.direction += angle;
+    this.direction -= angle;
     this.graphic.rotateOnAxis(new THREE.Vector3(0,0,1), angle);
 };
 
@@ -83,4 +83,16 @@ Player.prototype.move = function () {
     light1.position.x = this.graphic.position.x;
     light1.position.y = this.graphic.position.y;
    // light1.position.z = this.graphic.position.z + 500;
+};
+
+Player.prototype.move_ai = async function () {
+    if (Math.random() > 0.5) {
+        if (Math.random() > 0.6)
+            this.turnLeft(0.2);
+        else if (Math.random() > 0.6)
+            this.turnRight(0.2);
+    }
+    this.accelerate(Math.floor(Math.random()*5));
+    this.decelerate(Math.floor(Math.random()*5));
+    this.move();
 };

@@ -14,5 +14,8 @@ function update()
         player1.decelerate(moveDistance);
 
     player1.move();
+    for (i = 0; i < ennemies.length; ++i) {
+        ennemies[i].move_ai();
+    }
     controls.update();
 }

@@ -48,8 +48,9 @@
     var container, scene, camera, renderer, controls, stats;
     var keyboard = new THREEx.KeyboardState();
     var clock = new THREE.Clock();
-    var player1,
-        player2;
+    var player1;
+    var ennemies = [];
+    var NB_ENNEMIES = 5;
     var WIDTH = 600,
         HEIGHT = 400;
 
@@ -62,6 +63,8 @@
         render();
         update();
         player1.displayInfo();
+        for (var i = 0; i < ennemies.length; ++i)
+            ennemies[i].displayInfo();
         shoot();
         collisions();
     }
