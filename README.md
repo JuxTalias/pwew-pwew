@@ -33,3 +33,5 @@ You can update the index.html file and all the files inside the game repository
 
 - [X] : As a ennemy, I want to move on every axes
 - [X] : As a ennemy, I want to move randomly on the map
+- [X] : As a ennemy, I want to be displayed as white
+- [X] : As a user, I want to shoot faster
